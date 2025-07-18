@@ -5,6 +5,6 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [react(), tailwind()],
   output: 'static',
-  site: 'https://USERNAME.github.io',
-  base: '/REPOSITORY-NAME'
+  site: 'https://scn-lang.github.io',
+  base: '/'
 });
