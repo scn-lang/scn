@@ -1,0 +1,82 @@
+---
+import InteractiveExample from './InteractiveExample.jsx';
+---
+
+<section id="examples" class="py-20 px-6 bg-slate-800/30">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        See SCN in Action
+      </h2>
+      <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+        Real-world examples showing the power of symbolic context notation across different programming paradigms
+      </p>
+    </div>
+
+    <InteractiveExample client:load />
+
+    <!-- Symbol Legend -->
+    <div class="mt-16 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+      <h3 class="text-2xl font-bold mb-8 text-center text-white">Master Symbol Legend</h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- File & Structure -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-semibold text-blue-400 mb-3">File & Structure</h4>
+          <div class="space-y-2 text-sm font-mono">
+            <div class="flex items-center gap-3">
+              <span class="text-blue-400 text-lg">◮</span>
+              <span class="text-slate-300">File separator</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-purple-400 text-lg">⤴</span>
+              <span class="text-slate-300">Export/public</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-slate-400 text-lg">⤵</span>
+              <span class="text-slate-300">Import/dependency</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entities -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-semibold text-green-400 mb-3">Entities</h4>
+          <div class="space-y-2 text-sm font-mono">
+            <div class="flex items-center gap-3">
+              <span class="text-green-400 text-lg">◉</span>
+              <span class="text-slate-300">Class/Type</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-yellow-400 text-lg">⚡</span>
+              <span class="text-slate-300">Function/Method</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-pink-400 text-lg">◈</span>
+              <span class="text-slate-300">Interface/Protocol</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modifiers -->
+        <div class="space-y-4">
+          <h4 class="text-lg font-semibold text-orange-400 mb-3">Modifiers</h4>
+          <div class="space-y-2 text-sm font-mono">
+            <div class="flex items-center gap-3">
+              <span class="text-orange-400 text-lg">⊕</span>
+              <span class="text-slate-300">Public</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-red-400 text-lg">⊖</span>
+              <span class="text-slate-300">Private</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-indigo-400 text-lg">⊗</span>
+              <span class="text-slate-300">Static</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

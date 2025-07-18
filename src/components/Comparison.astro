@@ -1,0 +1,153 @@
+---
+---
+
+<section id="comparison" class="py-20 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+        SCN vs Traditional Approaches
+      </h2>
+      <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+        See how SCN compares to other code representation methods
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="border-b border-slate-700/50">
+              <th class="text-left p-6 font-semibold text-slate-300">Feature</th>
+              <th class="text-center p-6 font-semibold text-red-400">Raw Source Code</th>
+              <th class="text-center p-6 font-semibold text-yellow-400">AST</th>
+              <th class="text-center p-6 font-semibold text-blue-400">CST</th>
+              <th class="text-center p-6 font-semibold text-green-400">SCN</th>
+            </tr>
+          </thead>
+          <tbody class="text-sm">
+            <tr class="border-b border-slate-700/30">
+              <td class="p-6 font-medium text-slate-300">Token Efficiency</td>
+              <td class="p-6 text-center text-red-400">❌ Very Low</td>
+              <td class="p-6 text-center text-yellow-400">⚠️ Low</td>
+              <td class="p-6 text-center text-yellow-400">⚠️ Low</td>
+              <td class="p-6 text-center text-green-400">✅ Extremely High</td>
+            </tr>
+            <tr class="border-b border-slate-700/30">
+              <td class="p-6 font-medium text-slate-300">Human Readable</td>
+              <td class="p-6 text-center text-green-400">✅ Yes</td>
+              <td class="p-6 text-center text-red-400">❌ No</td>
+              <td class="p-6 text-center text-red-400">❌ No</td>
+              <td class="p-6 text-center text-green-400">✅ Yes</td>
+            </tr>
+            <tr class="border-b border-slate-700/30">
+              <td class="p-6 font-medium text-slate-300">Language Agnostic</td>
+              <td class="p-6 text-center text-red-400">❌ No</td>
+              <td class="p-6 text-center text-yellow-400">⚠️ Partial</td>
+              <td class="p-6 text-center text-yellow-400">⚠️ Partial</td>
+              <td class="p-6 text-center text-green-400">✅ Yes</td>
+            </tr>
+            <tr class="border-b border-slate-700/30">
+              <td class="p-6 font-medium text-slate-300">Structural Context</td>
+              <td class="p-6 text-center text-green-400">✅ Full</td>
+              <td class="p-6 text-center text-green-400">✅ Full</td>
+              <td class="p-6 text-center text-green-400">✅ Full</td>
+              <td class="p-6 text-center text-green-400">✅ Optimized</td>
+            </tr>
+            <tr class="border-b border-slate-700/30">
+              <td class="p-6 font-medium text-slate-300">API Surface</td>
+              <td class="p-6 text-center text-yellow-400">⚠️ Mixed</td>
+              <td class="p-6 text-center text-yellow-400">⚠️ Implicit</td>
+              <td class="p-6 text-center text-yellow-400">⚠️ Implicit</td>
+              <td class="p-6 text-center text-green-400">✅ Explicit</td>
+            </tr>
+            <tr class="border-b border-slate-700/30">
+              <td class="p-6 font-medium text-slate-300">LLM Optimized</td>
+              <td class="p-6 text-center text-red-400">❌ No</td>
+              <td class="p-6 text-center text-red-400">❌ No</td>
+              <td class="p-6 text-center text-red-400">❌ No</td>
+              <td class="p-6 text-center text-green-400">✅ Purpose Built</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium text-slate-300">File Relationships</td>
+              <td class="p-6 text-center text-red-400">❌ Scattered</td>
+              <td class="p-6 text-center text-red-400">❌ Missing</td>
+              <td class="p-6 text-center text-red-400">❌ Missing</td>
+              <td class="p-6 text-center text-green-400">✅ Explicit</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Token Comparison Chart -->
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+        <h3 class="text-xl font-bold mb-6 text-white">Token Usage Comparison</h3>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">Raw Source Code</span>
+            <div class="flex items-center gap-3">
+              <div class="w-32 h-4 bg-slate-700 rounded-full overflow-hidden">
+                <div class="w-full h-full bg-red-500"></div>
+              </div>
+              <span class="text-red-400 font-mono text-sm">2,341 tokens</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">AST JSON</span>
+            <div class="flex items-center gap-3">
+              <div class="w-32 h-4 bg-slate-700 rounded-full overflow-hidden">
+                <div class="w-3/4 h-full bg-yellow-500"></div>
+              </div>
+              <span class="text-yellow-400 font-mono text-sm">1,756 tokens</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">SCN</span>
+            <div class="flex items-center gap-3">
+              <div class="w-32 h-4 bg-slate-700 rounded-full overflow-hidden">
+                <div class="w-2 h-full bg-green-500"></div>
+              </div>
+              <span class="text-green-400 font-mono text-sm">41 tokens</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+          <div class="text-green-400 font-bold text-lg">98.2% Reduction!</div>
+          <div class="text-green-300 text-sm">From 2,341 to 41 tokens</div>
+        </div>
+      </div>
+
+      <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+        <h3 class="text-xl font-bold mb-6 text-white">Context Preservation</h3>
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">API Surface</span>
+            <span class="text-green-400">✅ 100%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">Class Structure</span>
+            <span class="text-green-400">✅ 100%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">Dependencies</span>
+            <span class="text-green-400">✅ 100%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">Exports</span>
+            <span class="text-green-400">✅ 100%</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-slate-300">Type Information</span>
+            <span class="text-green-400">✅ 100%</span>
+          </div>
+        </div>
+        <div class="mt-6 p-4 bg-blue-500/10 rounded-xl border border-blue-500/20">
+          <div class="text-blue-400 font-bold">Perfect Fidelity</div>
+          <div class="text-blue-300 text-sm">All structural context preserved</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

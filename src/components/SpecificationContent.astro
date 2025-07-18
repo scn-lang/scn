@@ -1,0 +1,257 @@
+---
+---
+
+<div class="max-w-4xl mx-auto px-6 py-12">
+  <!-- Hero Section -->
+  <section class="text-center mb-16">
+    <h1 class="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+      SCN Specification v1.0
+    </h1>
+    <p class="text-xl text-slate-400 max-w-3xl mx-auto">
+      The complete technical specification for Symbolic Context Notation - a hyper-efficient format for representing software codebase structure.
+    </p>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="mb-16 bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+    <h2 class="text-2xl font-bold mb-6 text-white">Table of Contents</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div class="space-y-2">
+        <a href="#problem" class="block text-blue-400 hover:text-blue-300 transition-colors">1. The Problem: Context Chasm</a>
+        <a href="#solution" class="block text-blue-400 hover:text-blue-300 transition-colors">2. The Solution: SCN Philosophy</a>
+        <a href="#comparison" class="block text-blue-400 hover:text-blue-300 transition-colors">3. Comparison with AST/CST</a>
+        <a href="#examples" class="block text-blue-400 hover:text-blue-300 transition-colors">4. Before & After Examples</a>
+        <a href="#specification" class="block text-blue-400 hover:text-blue-300 transition-colors">5. Core Specification</a>
+      </div>
+      <div class="space-y-2">
+        <a href="#symbols" class="block text-blue-400 hover:text-blue-300 transition-colors">6. Master Symbol Legend</a>
+        <a href="#paradigms" class="block text-blue-400 hover:text-blue-300 transition-colors">7. Examples by Paradigm</a>
+        <a href="#rationale" class="block text-blue-400 hover:text-blue-300 transition-colors">8. Design Rationale</a>
+        <a href="#applications" class="block text-blue-400 hover:text-blue-300 transition-colors">9. Applications & Vision</a>
+        <a href="#tooling" class="block text-blue-400 hover:text-blue-300 transition-colors">10. Tooling & Ecosystem</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section id="problem" class="mb-16">
+    <h2 class="text-3xl font-bold mb-6 text-white">1. The Problem: The "Context Chasm"</h2>
+    <div class="prose prose-invert max-w-none">
+      <p class="text-slate-300 text-lg leading-relaxed mb-6">
+        Modern software development faces a fundamental challenge: the gap between massive codebases and LLM token limits. 
+        A typical enterprise application can contain millions of lines of code, but even the most advanced LLMs have 
+        context windows measured in hundreds of thousands of tokens.
+      </p>
+      
+      <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-6 mb-6">
+        <h3 class="text-red-400 font-bold mb-3">The Challenge</h3>
+        <ul class="space-y-2 text-slate-300">
+          <li>• A single React component can consume 2,000+ tokens</li>
+          <li>• Enterprise codebases require millions of tokens for full context</li>
+          <li>• LLMs lose critical architectural understanding when context is truncated</li>
+          <li>• Developers resort to cherry-picking files, losing inter-file relationships</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section id="solution" class="mb-16">
+    <h2 class="text-3xl font-bold mb-6 text-white">2. The Solution: SCN Philosophy</h2>
+    <div class="prose prose-invert max-w-none">
+      <p class="text-slate-300 text-lg leading-relaxed mb-6">
+        SCN bridges this chasm by representing the <em>structural surface</em> of code rather than its implementation details. 
+        It captures what matters most for understanding: APIs, relationships, and architectural patterns.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+          <h3 class="text-green-400 font-bold mb-3">What SCN Captures</h3>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li>✅ Class and function signatures</li>
+            <li>✅ Import/export relationships</li>
+            <li>✅ Type information</li>
+            <li>✅ Public APIs</li>
+            <li>✅ File structure</li>
+            <li>✅ Inheritance hierarchies</li>
+          </ul>
+        </div>
+        <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+          <h3 class="text-red-400 font-bold mb-3">What SCN Omits</h3>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li>❌ Implementation details</li>
+            <li>❌ Comments and documentation</li>
+            <li>❌ Whitespace and formatting</li>
+            <li>❌ Local variables</li>
+            <li>❌ Control flow logic</li>
+            <li>❌ Literal values</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Specification -->
+  <section id="specification" class="mb-16">
+    <h2 class="text-3xl font-bold mb-6 text-white">5. The SCN Specification v1.0</h2>
+    
+    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 mb-8">
+      <h3 class="text-xl font-bold mb-4 text-blue-400">Core Structure</h3>
+      <p class="text-slate-300 mb-4">
+        SCN files consist of file blocks separated by the file separator symbol <code class="bg-slate-700 px-2 py-1 rounded text-blue-400">◮</code>. 
+        Each file block contains entity definitions with their relationships and properties.
+      </p>
+      
+      <div class="bg-slate-900/50 rounded-xl p-4 font-mono text-sm">
+        <div class="text-slate-400">// Basic structure</div>
+        <div class="text-blue-400">filename.ext◮</div>
+        <div class="text-slate-300 ml-2">⤵imports</div>
+        <div class="text-slate-300 ml-2">◉Entity{properties}</div>
+        <div class="text-slate-300 ml-4">⚡method()→returnType</div>
+        <div class="text-slate-300 ml-2">⤴exports</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Symbol Legend -->
+  <section id="symbols" class="mb-16">
+    <h2 class="text-3xl font-bold mb-6 text-white">6. Master Symbol Legend</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- File Operations -->
+      <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+        <h3 class="text-blue-400 font-bold mb-4">File Operations</h3>
+        <div class="space-y-3 font-mono text-sm">
+          <div class="flex items-center gap-3">
+            <span class="text-blue-400 text-lg">◮</span>
+            <span class="text-slate-300">File separator</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-purple-400 text-lg">⤴</span>
+            <span class="text-slate-300">Export/public</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-slate-400 text-lg">⤵</span>
+            <span class="text-slate-300">Import/dependency</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Entities -->
+      <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+        <h3 class="text-green-400 font-bold mb-4">Entities</h3>
+        <div class="space-y-3 font-mono text-sm">
+          <div class="flex items-center gap-3">
+            <span class="text-green-400 text-lg">◉</span>
+            <span class="text-slate-300">Class/Type</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-yellow-400 text-lg">⚡</span>
+            <span class="text-slate-300">Function/Method</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-pink-400 text-lg">◈</span>
+            <span class="text-slate-300">Interface/Protocol</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-cyan-400 text-lg">◦</span>
+            <span class="text-slate-300">Variable/Property</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modifiers -->
+      <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/50">
+        <h3 class="text-orange-400 font-bold mb-4">Modifiers</h3>
+        <div class="space-y-3 font-mono text-sm">
+          <div class="flex items-center gap-3">
+            <span class="text-orange-400 text-lg">⊕</span>
+            <span class="text-slate-300">Public</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 text-lg">⊖</span>
+            <span class="text-slate-300">Private</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-indigo-400 text-lg">⊗</span>
+            <span class="text-slate-300">Static</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-purple-400 text-lg">⊙</span>
+            <span class="text-slate-300">Abstract</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Applications -->
+  <section id="applications" class="mb-16">
+    <h2 class="text-3xl font-bold mb-6 text-white">9. Applications & The Broader Vision</h2>
+    <div class="prose prose-invert max-w-none">
+      <p class="text-slate-300 text-lg leading-relaxed mb-6">
+        SCN enables a new generation of AI-assisted development tools by providing LLMs with comprehensive 
+        codebase context at a fraction of the token cost.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-xl p-6 border border-blue-500/20">
+          <h3 class="text-blue-400 font-bold mb-3">Immediate Applications</h3>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li>• Code review and analysis</li>
+            <li>• Automated documentation generation</li>
+            <li>• Refactoring assistance</li>
+            <li>• Architecture visualization</li>
+            <li>• Dependency analysis</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-xl p-6 border border-purple-500/20">
+          <h3 class="text-purple-400 font-bold mb-3">Future Possibilities</h3>
+          <ul class="space-y-2 text-slate-300 text-sm">
+            <li>• AI-powered code generation</li>
+            <li>• Intelligent code completion</li>
+            <li>• Cross-language understanding</li>
+            <li>• Automated testing strategies</li>
+            <li>• Performance optimization suggestions</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tooling -->
+  <section id="tooling" class="mb-16">
+    <h2 class="text-3xl font-bold mb-6 text-white">10. Tooling & Ecosystem</h2>
+    <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Parsers</h3>
+          <p class="text-slate-400 text-sm">Language-specific parsers for generating SCN from source code</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">Generators</h3>
+          <p class="text-slate-400 text-sm">Tools for generating documentation and visualizations from SCN</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-white mb-2">IDE Extensions</h3>
+          <p class="text-slate-400 text-sm">Editor integrations for real-time SCN generation and viewing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

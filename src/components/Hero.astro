@@ -1,0 +1,65 @@
+---
+import CodeExample from './CodeExample.jsx';
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background gradient -->
+  <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 via-purple-900/20 to-pink-900/20"></div>
+  
+  <!-- Animated background pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500 rounded-full blur-3xl animate-pulse delay-1000"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+    <!-- Main heading -->
+    <div class="mb-8">
+      <h1 class="text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        ◮ SCN
+      </h1>
+      <h2 class="text-2xl md:text-4xl font-light mb-4 text-slate-300">
+        Symbolic Context Notation
+      </h2>
+      <p class="text-xl md:text-2xl text-slate-400 max-w-4xl mx-auto leading-relaxed">
+        A <span class="text-blue-400 font-semibold">hyper-efficient</span>, language-agnostic format for representing 
+        software codebase structure. Give LLMs <span class="text-purple-400 font-semibold">unparalleled context</span> 
+        at a fraction of the token cost.
+      </p>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+      <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+        <div class="text-3xl font-bold text-blue-400 mb-2">90%+</div>
+        <div class="text-slate-300">Token Reduction</div>
+      </div>
+      <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+        <div class="text-3xl font-bold text-purple-400 mb-2">∞</div>
+        <div class="text-slate-300">Language Support</div>
+      </div>
+      <div class="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700/50">
+        <div class="text-3xl font-bold text-pink-400 mb-2">v1.0</div>
+        <div class="text-slate-300">Stable Spec</div>
+      </div>
+    </div>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+      <a href="#examples" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+        See Examples
+      </a>
+      <a href="#specification" class="border border-slate-600 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-800/50">
+        Read Specification
+      </a>
+      <a href="https://github.com/scn-lang/scn" target="_blank" class="border border-slate-600 hover:border-slate-500 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 hover:bg-slate-800/50">
+        GitHub →
+      </a>
+    </div>
+
+    <!-- Interactive Code Example -->
+    <div class="max-w-5xl mx-auto">
+      <CodeExample client:load />
+    </div>
+  </div>
+</section>
